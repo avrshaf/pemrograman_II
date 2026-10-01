@@ -10,14 +10,14 @@ public class PRAK102_2510817220010_AuroraShafaSalsabila {
 
         int deret = 1;
 
-        while (deret <= 11) {
+        while (deret <= 10) {
             if (angka % 5 == 0) {
                 System.out.print((angka / 5) - 1);
             } else {
                 System.out.print(angka);
             }
 
-            if (deret < 11) {
+            if (deret < 10) {
                 System.out.print(", ");
             }
 

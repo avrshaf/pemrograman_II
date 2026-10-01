@@ -1,12 +1,13 @@
 package Modul1;
 
 import java.util.Scanner;
+import java.util.Locale;
 
 public class PRAK105_2510817220010_AuroraShafaSalsabila {
     public static final double PHI = 3.14;
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in).useLocale(Locale.US);
 
         System.out.print("Masukkan jari-jari: ");
         double jariJari = input.nextDouble();
@@ -24,8 +25,8 @@ public class PRAK105_2510817220010_AuroraShafaSalsabila {
 
         double hasilVolume = PHI * jariJari * jariJari * tinggi;
 
-        System.out.printf("Volume tabung dengan jari-jari %.1f cm\n", jariJari);
-        System.out.printf("dan tinggi %.1f cm adalah %.3f m3\n", tinggi, hasilVolume);
+        System.out.printf(Locale.US, "Volume tabung dengan jari-jari %.1f cm\n", jariJari);
+        System.out.printf(Locale.US, "dan tinggi %.1f cm adalah %.3f m3\n", tinggi, hasilVolume);
 
         input.close();
     }
