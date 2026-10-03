@@ -1,39 +1,37 @@
 package Modul2.PRAK201_2510817220010_AuroraShafaSalsabila;
 
-import java.util.Locale;
-
 public class Buah {
-    private String NamaBuah;
-    private double Berat;
-    private double Harga;
-    private double JumlahBeli;
+    private String namaBuah;
+    private double berat;
+    private double harga;
+    private double jumlahBeli;
 
-    public Buah(String NamaBuah, double Berat, double Harga, double JumlahBeli) {
-        this.NamaBuah = NamaBuah;
-        this.Berat = Berat;
-        this.Harga = Harga;
-        this.JumlahBeli = JumlahBeli;
+    public Buah(String namaBuah, double berat, double harga, double jumlahBeli) {
+        this.namaBuah = namaBuah;
+        this.berat = berat;
+        this.harga = harga;
+        this.jumlahBeli = jumlahBeli;
     }
 
-    public void Tampilkan() {
-        double Hargaperkg = this.Harga / this.Berat;
-        double Hargasebelumdiskon = this.JumlahBeli * Hargaperkg;
+    private double getHargaPerKg() {
+        return this.harga / this.berat;
+    }
 
-        int Kelipatandiskon = (int) (this.JumlahBeli / 4);
-        double Totaldiskon = 0;
+    public void hitungDanTampilkan() {
+        double hargaSebelumDiskon = this.jumlahBeli * getHargaPerKg();
 
-        for (int i = 0; i < Kelipatandiskon; i++) {
-            Totaldiskon += (this.Harga * 4 * 0.02);
-        }
+        int kelipatanDiskon = (int) (this.jumlahBeli / 4);
 
-        double Hargasetelahdiskon = Hargasebelumdiskon - Totaldiskon;
+        double totalDiskon = kelipatanDiskon * (4 * getHargaPerKg()) * 0.02;
 
-        System.out.println("Nama Buah: " + this.NamaBuah);
-        System.out.println("Berat: " + this.Berat);
-        System.out.println("Harga: " + this.Harga);
-        System.out.println("Jumlah Beli: " + this.JumlahBeli + "kg");
-        System.out.printf(Locale.US, "Harga Sebelum Diskon: Rp%.2f\n", Hargasebelumdiskon);
-        System.out.printf(Locale.US, "Total Diskon: Rp%.2f\n", Totaldiskon);
-        System.out.printf(Locale.US, "Harga Setelah Diskon: Rp%.2f\n\n", Hargasetelahdiskon);
+        double hargaSetelahDiskon = hargaSebelumDiskon - totalDiskon;
+
+        System.out.println("Nama Buah: " + this.namaBuah);
+        System.out.println("Berat: " + this.berat);
+        System.out.println("Harga: " + this.harga);
+        System.out.println("Jumlah Beli: " + this.jumlahBeli + "kg");
+        System.out.printf("Harga Sebelum Diskon: Rp%.2f\n", hargaSebelumDiskon);
+        System.out.printf("Total Diskon: Rp%.2f\n", totalDiskon);
+        System.out.printf("Harga Setelah Diskon: Rp%.2f\n\n", hargaSetelahDiskon);
     }
 }
