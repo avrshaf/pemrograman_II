@@ -1,7 +1,6 @@
 package soal1;
 
 import java.text.DecimalFormat;
-import java.math.RoundingMode;
 
 public class PaintThings {
     public static void main(String[] args) {
@@ -18,8 +17,7 @@ public class PaintThings {
         ballAmt = paint.amount(bigBall);
         tankAmt = paint.amount(tank);
 
-        DecimalFormat fmt = new DecimalFormat("0");
-        fmt.setRoundingMode(RoundingMode.CEILING);
+        DecimalFormat fmt = new DecimalFormat("0.#");
 
         System.out.println("\nNumber of gallons of paint needed...");
         System.out.println("Deck " + fmt.format(deckAmt));
